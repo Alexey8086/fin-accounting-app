@@ -1,0 +1,104 @@
+@import '../reSet/reSet.scss';
+
+.grid-container {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+    /* Неявный грид */
+    grid-auto-rows: 299px;
+    grid-gap: 30px;
+
+    .grid-container__item {
+      cursor: pointer;
+      background: #FFFFFF;
+      box-shadow: 3px 9px 11px 1px rgba(0, 0, 0, 0.25);
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 40px 20px 40px;
+
+      .item__title {
+        width: 100%;
+        height: 20%;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 38px;
+      }
+
+      .item__amount {
+        width: 100%;
+        height: 60%;
+        font-weight: 400;
+        font-size: 96px;
+        line-height: 112px;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .item__btns {
+        width: 100%;
+        height: 20%;
+        display: flex;
+        align-items: center;
+
+        button {
+          font-weight: bold;
+          font-size: 16px;
+        }
+
+        .btns__edit {
+          width: 154px;
+          height: 33px;
+          border-radius: 15px;
+          background: #CBF2B3;
+        }
+
+        .btns__delite {
+          width: 120px;
+          height: 33px;
+          border-radius: 15px;
+          background: #FA8585;
+          margin-left: 15px;
+        }
+      }
+    }
+
+    #grid-container__add-wallet {
+      cursor: pointer;
+      background: #FFFFFF;
+      box-shadow: 3px 9px 11px 1px rgba(0, 0, 0, 0.25);
+      border-radius: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 40px 20px 40px;
+
+      #add-wallet__circle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 50%;
+        border-radius: 50%;
+        background: #F9F9F9;
+        padding: 10px;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      span {
+        width: 100%;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #969696;
+        text-align: left;
+        padding-top: 10px;
+      }
+    }
+}

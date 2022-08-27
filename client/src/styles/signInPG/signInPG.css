@@ -1,0 +1,95 @@
+.warning-msg {
+  position: absolute;
+  width: 300px;
+  max-height: 100px;
+  top: 100px;
+  left: calc(50vw - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+.warning-msg span {
+  width: 100%;
+  color: rgb(219, 146, 10);
+  font-weight: 400;
+  padding-top: 20px;
+}
+
+.top-menu {
+  width: 100%;
+  height: 64px;
+  background-color: white;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.top-menu .top-menu__links-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  height: 100%;
+}
+.top-menu .top-menu__links-container span {
+  font-size: 24px;
+  color: #FF6939;
+  cursor: pointer;
+}
+
+.signIn-block {
+  width: 520px;
+  height: 450px;
+  background-color: #fff;
+  box-shadow: 3px 9px 11px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  margin: 0 auto;
+  margin-top: calc(50vh - 225px - 64px);
+  padding-top: 30px;
+}
+.signIn-block .signIn-block__title {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 52px;
+}
+.signIn-block .signIn-block__field {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.signIn-block .signIn-block__field span {
+  width: 80%;
+  height: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+}
+.signIn-block .signIn-block__field input {
+  width: 80%;
+  height: 50px;
+  box-shadow: inset -1px 2px 5px 2px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-size: 20px;
+  padding: 10px;
+}
+.signIn-block button {
+  width: 80%;
+  height: 60px;
+  border: 0;
+  background: rgba(174, 255, 94, 0.767);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  outline: none;
+  cursor: pointer;
+  font-size: 24px;
+}/*# sourceMappingURL=signInPG.css.map */

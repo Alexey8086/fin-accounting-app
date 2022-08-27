@@ -1,0 +1,116 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #F6F6F6;
+  color: #353535;
+}
+
+button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+.grid-container {
+  padding: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+  /* Неявный грид */
+  grid-auto-rows: 299px;
+  grid-gap: 30px;
+}
+.grid-container .grid-container__item {
+  cursor: pointer;
+  background: #FFFFFF;
+  box-shadow: 3px 9px 11px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 40px 20px 40px;
+}
+.grid-container .grid-container__item .item__title {
+  width: 100%;
+  height: 20%;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 38px;
+}
+.grid-container .grid-container__item .item__amount {
+  width: 100%;
+  height: 60%;
+  font-weight: 400;
+  font-size: 96px;
+  line-height: 112px;
+  font-weight: bold;
+  text-align: center;
+}
+.grid-container .grid-container__item .item__btns {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+}
+.grid-container .grid-container__item .item__btns button {
+  font-weight: bold;
+  font-size: 16px;
+}
+.grid-container .grid-container__item .item__btns .btns__edit {
+  width: 154px;
+  height: 33px;
+  border-radius: 15px;
+  background: #CBF2B3;
+}
+.grid-container .grid-container__item .item__btns .btns__delite {
+  width: 120px;
+  height: 33px;
+  border-radius: 15px;
+  background: #FA8585;
+  margin-left: 15px;
+}
+.grid-container #grid-container__add-wallet {
+  cursor: pointer;
+  background: #FFFFFF;
+  box-shadow: 3px 9px 11px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px 20px 40px;
+}
+.grid-container #grid-container__add-wallet #add-wallet__circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  border-radius: 50%;
+  background: #F9F9F9;
+  padding: 10px;
+}
+.grid-container #grid-container__add-wallet #add-wallet__circle img {
+  width: 100%;
+  height: 100%;
+}
+.grid-container #grid-container__add-wallet span {
+  width: 100%;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  color: #969696;
+  text-align: left;
+  padding-top: 10px;
+}/*# sourceMappingURL=walletsPG.css.map */
