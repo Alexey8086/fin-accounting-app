@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Menu from '../components/Menu'
 import Modal from '../components/Modal'
 import '../styles/walletsPG/walletsPG.css'
@@ -16,9 +16,11 @@ const WalletsPG: React.FC = () => {
     setModal(param)
   }
 
+
+
   return (
     <>
-      <Modal setModalProp={modalStateHandler} whichModal={ modal }/>
+      <Modal setModalProp={modalStateHandler} whichModal={ modal } whichPage={'wallets'}/>
 
       <Menu />
 

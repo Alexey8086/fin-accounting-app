@@ -3,11 +3,12 @@ import '../styles/modal/modal.css'
 import ModalBlock from './ModalBlock'
 
 interface IModalProps {
+  whichPage: string
   whichModal: string
   setModalProp: Function
 }
 
-const Modal = ({setModalProp, whichModal}:IModalProps) => {
+const Modal = ({setModalProp, whichModal, whichPage}:IModalProps) => {
 
   const $container= useRef<HTMLDivElement>(null)
 
@@ -31,11 +32,10 @@ const Modal = ({setModalProp, whichModal}:IModalProps) => {
     <div className='modal-container' ref={$container}>
         <div onClick={close} className={'modal-offset'}></div>
         <ModalBlock
+          whichPage={whichPage}
           whichModal={ whichModal }
           setModal={ setModalProp }
-        >
-
-        </ModalBlock>
+        > </ModalBlock>
     </div>
   )
 }

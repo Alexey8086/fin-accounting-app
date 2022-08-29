@@ -1,15 +1,23 @@
-body {
-  margin: 0;
-  background-color: #fff;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
-button, input {
+body {
+  background-color: #F6F6F6;
+  color: #353535;
+}
+
+button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
   border: 0;
   outline: none;
 }

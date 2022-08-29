@@ -1,4 +1,154 @@
-h1 {
-  font-size: 5rem;
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-color: #F6F6F6;
+  color: #353535;
+}
+
+button {
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+input {
+  border: 0;
+  outline: none;
+}
+
+.top-menu {
+  width: 100%;
+  height: 64px;
+  background-color: white;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  padding-right: 40px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.top-menu .top-menu__links-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+  height: 100%;
+}
+.top-menu .top-menu__links-container span {
+  font-size: 24px;
+  color: #FF6939;
+  cursor: pointer;
+}
+
+.gain-container {
+  width: 80%;
+  min-height: calc(100vh - 64px - 120px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 120px;
+}
+.gain-container .profit__title {
+  width: 100%;
+  height: 62px;
+  background: rgba(158, 217, 100, 0.32);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 0 15px;
+  margin-bottom: 30px;
+}
+.gain-container .profit__title span {
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+}
+.gain-container .profit__title button {
+  height: 40px;
+  background: rgba(158, 217, 100, 0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-weight: 200;
+  font-size: 24px;
+  line-height: 28px;
+  padding: 0 10px 0 10px;
+  color: #FF3E00;
+}
+.gain-container .gain-item-container {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-items: center;
+  margin-top: 40px;
+}
+.gain-container .gain-item-container .gain-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px 0 15px;
+  width: 80%;
+  height: 50px;
+  background: #F6F6F6;
+  box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #353535;
+}
+@media only screen and (max-width: 1900px) {
+  .gain-container .gain-item-container .gain-item {
+    width: 70%;
+  }
+}
+@media only screen and (max-width: 1900px) and (max-width: 1300px) {
+  .gain-container .gain-item-container .gain-item {
+    width: 60%;
+  }
+}
+.gain-container .gain-item-container button {
+  height: 50px;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 28px;
+  color: #000000;
+  padding: 0 10px 0 10px;
+  box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+}
+.gain-container .gain-item-container .gain-item-edit-btn {
+  background: rgba(97, 255, 0, 0.33);
+  width: 12%;
+}
+@media only screen and (max-width: 1900px) {
+  .gain-container .gain-item-container .gain-item-edit-btn {
+    width: 18%;
+  }
+}
+@media only screen and (max-width: 1900px) and (max-width: 1300px) {
+  .gain-container .gain-item-container .gain-item-edit-btn {
+    width: 25%;
+  }
+}
+.gain-container .gain-item-container .gain-item-delete-btn {
+  width: 8%;
+  background: rgba(255, 0, 0, 0.46);
+}
+@media only screen and (max-width: 1900px) {
+  .gain-container .gain-item-container .gain-item-delete-btn {
+    width: 12%;
+  }
+}
+@media only screen and (max-width: 1900px) and (max-width: 1300px) {
+  .gain-container .gain-item-container .gain-item-delete-btn {
+    width: 15%;
+  }
 }/*# sourceMappingURL=profitPG.css.map */

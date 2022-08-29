@@ -1,4 +1,139 @@
-.heading {
-    font-size: 5rem;
-    color: rgb(233, 138, 79);
+@import '../reSet/reSet.scss';
+
+.top-menu {
+    width: 100%;
+    height: 64px;
+    background-color: white;
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    padding-right: 40px;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .top-menu__links-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 20%;
+      height: 100%;
+
+      span {
+        font-size: 24px;
+        color: #FF6939;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .cost-container {
+    width: 80%;
+    min-height: calc(100vh - 64px - 120px);
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 120px;
+
+    .cost__title {
+      width: 100%;
+      height: 62px;
+      background: #F59590;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 15px 0 15px;
+      margin-bottom: 30px;
+
+      span {
+        font-weight: 400;
+        font-size: 32px;
+        line-height: 38px;
+      }
+
+      button {
+        height: 40px;
+        background: #F59590;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 25px;
+        font-weight: 200;
+        font-size: 24px;
+        line-height: 28px;
+        padding: 0 10px 0 10px;
+
+        color: #FF3E00;
+      }
+
+    }
+
+    .cost-item-container {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+      align-items: center;
+      margin-top: 40px;
+
+      .cost-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px 0 15px;
+
+        width: 80%;
+        height: 50px;
+        background: #F6F6F6;
+        box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        color: #353535;
+
+        @media only screen and (max-width: 1900px) {
+          width: 70%;
+
+          @media only screen and (max-width: 1300px) {
+            width: 60%;
+          }
+        }
+      }
+
+      button {
+        height: 50px;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 28px;
+        color: #000000;
+        padding: 0 10px 0 10px;
+        box-shadow: 2px 3px 7px 3px rgba(0, 0, 0, 0.25);
+        border-radius: 15px;
+      }
+
+      .cost-item-edit-btn {
+        background: rgba(97, 255, 0, 0.33);
+        width: 12%;
+
+        @media only screen and (max-width: 1900px) {
+          width: 18%;
+
+          @media only screen and (max-width: 1300px) {
+            width: 25%;
+          }
+        }
+      }
+
+      .cost-item-delete-btn {
+        width: 8%;
+        background: rgba(255, 0, 0, 0.46);
+
+        @media only screen and (max-width: 1900px) {
+          width: 12%;
+
+          @media only screen and (max-width: 1300px) {
+            width: 15%;
+          }
+        }
+      }
+    }
 }
