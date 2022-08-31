@@ -26,8 +26,9 @@ const WalletsPG: FC = observer(() => {
   const { user }:any = useContext(Context)
   const userId:string = user.getUser?.id
 
-  const onClickHandler = (wModal:string):void => {
+  const onClickHandler = (wModal:string, id?: string):void => {
     setModal(wModal)
+    setWalletId(id)
   }
 
   const modalStateHandler = (param:string):void => {

@@ -17,10 +17,6 @@ const Wallet = ({title, balance, onClickHandler, setWalletId, id}:IWalletProps) 
 
   const navigate = useNavigate()
 
-  useEffect(() => {
-    setWalletId(id)
-  }, [])
-
   const navigateHandler = (navigate:Function) => {
     navigate(`${WALLET_PG_ROUTE}/${id}`)
   }
@@ -28,12 +24,12 @@ const Wallet = ({title, balance, onClickHandler, setWalletId, id}:IWalletProps) 
 
   return (
 
-    <div onClick={ ()=>navigateHandler(navigate) } className={'grid-container__item'}>
-    <div className={'item__title'}> {title} </div>
-    <div className={'item__amount'}>{balance}</div>
+    <div className={'grid-container__item'}>
+    <div onClick={ ()=>navigateHandler(navigate) } className={'item__title'}> {title} </div>
+    <div onClick={ ()=>navigateHandler(navigate) } className={'item__amount'}>{balance}</div>
     <div className={'item__btns'}>
-      <button onClick={ ()=>{ onClickHandler('edit') } } className={'btns__edit'}>редактировать</button>
-      <button onClick={ ()=>{ onClickHandler('delete')} } className={'btns__delite'}>удалить</button>
+      <button onClick={ ()=>{ onClickHandler('edit', id) } } className={'btns__edit'}>редактировать</button>
+      <button onClick={ ()=>{ onClickHandler('delete', id)} } className={'btns__delite'}>удалить</button>
     </div>
   </div>
 

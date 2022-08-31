@@ -3,12 +3,12 @@ const router = new Router()
 const CostController = require('../controllers/costController')
 const authMiddleware = require('../middleware/authMiddleware')
 
-router.post('/create', CostController.create)
-router.post('/delete', CostController.delete)
-router.post('/update', CostController.update)
+router.post('/create', authMiddleware, CostController.create)
+router.post('/delete', authMiddleware, CostController.delete)
+router.post('/update', authMiddleware, CostController.update)
 
-router.get('/getCosts/:walletId', CostController.getCosts)
-router.get('/deleteAllCosts/:walletId', CostController.deleteAllCosts)
+router.get('/getCosts/:walletId', authMiddleware, CostController.getCosts)
+router.get('/deleteAllCosts/:walletId', authMiddleware, CostController.deleteAllCosts)
 
 
 module.exports = router

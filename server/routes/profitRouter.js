@@ -3,11 +3,11 @@ const router = new Router()
 const ProfitController = require('../controllers/profitController')
 const authMiddleware = require('../middleware/authMiddleware')
 
-router.post('/create', ProfitController.create)
-router.post('/delete', ProfitController.delete)
-router.post('/update', ProfitController.update)
+router.post('/create', authMiddleware, ProfitController.create)
+router.post('/delete', authMiddleware, ProfitController.delete)
+router.post('/update', authMiddleware, ProfitController.update)
 
-router.get('/getProfits/:walletId', ProfitController.getProfits)
-router.get('/deleteAllProfits/:walletId', ProfitController.deleteAllProfits)
+router.get('/getProfits/:walletId', authMiddleware, ProfitController.getProfits)
+router.get('/deleteAllProfits/:walletId', authMiddleware, ProfitController.deleteAllProfits)
 
 module.exports = router
