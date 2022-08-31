@@ -1,17 +1,15 @@
-import React, { useContext } from 'react'
+import React, { FC } from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { privateRoutes, publicRoutes } from '../routes'
 import { NOTFOUND_PG_ROUTE } from '../utils/consts'
 import { Context } from '../index'
 import { observer } from "mobx-react-lite"
 
-const AppRouter: React.FC = observer(() => {
-
-  const user = useContext(Context)
+const AppRouter = observer((auth:boolean | any) => {
 
   return (
     <Routes>
-      { user?.isAuth &&
+      { auth.isAuth ?
         privateRoutes.map (
           ( {path, Component} ) =>
             <Route
@@ -19,7 +17,7 @@ const AppRouter: React.FC = observer(() => {
               path={path}
               element={<Component />}
             />
-        )
+        ) : null
       }
 
       { publicRoutes.map (

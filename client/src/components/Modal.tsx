@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState, FC } from 'react'
 import '../styles/modal/modal.css'
 import ModalBlock from './ModalBlock'
-
 interface IModalProps {
   whichPage: string
   whichModal: string
+  userId: string
   setModalProp: Function
+  setDbChanges: Function
+  walletId: string
+  profitId: string
 }
 
-const Modal = ({setModalProp, whichModal, whichPage}:IModalProps) => {
+
+const Modal = ({setModalProp, whichModal, whichPage, userId, walletId, setDbChanges, profitId}:IModalProps) => {
 
   const $container= useRef<HTMLDivElement>(null)
 
@@ -35,6 +39,11 @@ const Modal = ({setModalProp, whichModal, whichPage}:IModalProps) => {
           whichPage={whichPage}
           whichModal={ whichModal }
           setModal={ setModalProp }
+          userId={userId}
+          walletId={walletId}
+          setDbChanges={setDbChanges}
+          onClose={close}
+          profitId={profitId}
         > </ModalBlock>
     </div>
   )

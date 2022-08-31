@@ -1,14 +1,26 @@
-import React from 'react'
-
+import React, { useEffect, useRef, useState} from 'react'
+import { createWallet, updataWallet, deleteOneWallet } from '../http/walletAPI'
+import { createProfit, updataProfit, deleteOneProfit } from '../http/profitAPI'
+import { createCost, updataCost, deleteOneCost } from '../http/costAPI'
 
 interface IModalProps {
     whichPage: string
     whichModal: string
+    userId: string
+    walletId: string
     setModal: Function
+    setDbChanges: Function
+    onClose: Function
     children: React.ReactNode
+    profitId: string
 }
 
-function ModalBlock(props: IModalProps) {
+
+const ModalBlock = (props: IModalProps) => {
+
+  const [title, setTitle] = useState('')
+  const [balance, setBalance] = useState('')
+  const [warning, setWarning] = useState('')
 
   let TITLE: string = ''
   let BTN_TEXT: string = ''
@@ -74,6 +86,79 @@ function ModalBlock(props: IModalProps) {
   }
 
 
+  const onClickHandler = async (action:string, whichPage:string) => {
+
+    if (whichPage=='wallets') {
+      if (action == "add") {
+        const res:any = await createWallet(props.userId, title, balance)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+
+      }
+
+      if (action == "edit") {
+        const res: any = await updataWallet(props.walletId, title, balance)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+
+      if (action == "delete") {
+        const res = await deleteOneWallet(props.walletId)
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+    }
+
+    if (whichPage=='profit') {
+      if (action == "add") {
+        const res:any = await createProfit(props.walletId, title, balance)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+
+      }
+
+      if (action == "edit") {
+        const res: any = await updataProfit(title, balance, props.profitId)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+
+      if (action == "delete") {
+        const res = await deleteOneProfit(props.profitId)
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+    }
+
+    if (whichPage=='cost') {
+      if (action == "add") {
+        const res:any = await createCost(props.walletId, title, balance)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+
+      }
+
+      if (action == "edit") {
+        const res: any = await updataCost(title, balance, props.profitId)
+
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+
+      if (action == "delete") {
+        const res = await deleteOneCost(props.profitId)
+        props.setDbChanges(`something changed in DB timestamp: ${Date.now()}`)
+        props.onClose()
+      }
+    }
+
+
+  }
 
   return (
     <div className={'modal-block'}>
@@ -92,7 +177,7 @@ function ModalBlock(props: IModalProps) {
                       'Название расхода:'
                     }
                   </span>
-                  <input type='text' name='text' />
+                  <input onChange={(e) => setTitle(e.target.value)} value={title} type='text' name='text' />
               </div>
 
               <div className={'modal-block__field'}>
@@ -103,13 +188,14 @@ function ModalBlock(props: IModalProps) {
                       'Денежный эквивалент:'
                     }
                   </span>
-                  <input type='text' name='text' />
+                  <input onChange={(e) => setBalance(e.target.value)} value={balance} type='text' name='text' />
               </div>
           </>
         }
 
         <div id={'modal-block__btn'} className={'modal-block__field'}>
-            <button className={ BTN_CLASS } type='submit'> { BTN_TEXT } </button>
+            <button onClick={() => onClickHandler(props.whichModal, props.whichPage)} className={ BTN_CLASS } type='submit'> { BTN_TEXT } </button>
+            { warning ? <h1 style={{backgroundColor: '#FDBB09 ', color: 'black'}}></h1> : null }
         </div>
 
     </div>

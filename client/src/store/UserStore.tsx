@@ -1,34 +1,54 @@
-import {makeAutoObservable, toJS} from 'mobx'
+import { action, computed, makeObservable, observable } from "mobx";
 
-export interface IUser {
-  id?: number
-  login?: string
+export interface Iuser {
+  id: string
+  username: string
 }
 
-class UserStore {
-  constructor () {
-    makeAutoObservable(this)
+
+export default class userStore {
+  user: Iuser | null = null
+  isAuth: boolean = false
+  someChangesInDB: string = ''
+
+  constructor() {
+    makeObservable(this, {
+      user: observable,
+      isAuth: observable,
+      someChangesInDB: observable,
+      setUser: action,
+      setIsAuth: action,
+      setSomeChangesInDB: action,
+      getUser: computed,
+      getIsAuth: computed,
+      getSomeChangesInDB: computed
+    })
+
+
   }
 
-  user: IUser = {}
-  isAuth: boolean = true // по умолчанию пользователь не авторизован (false)
 
-  setUser(user: IUser) {
+  setUser(user: Iuser) {
     this.user = user
   }
 
-  setIsAuth(isAuth:boolean) {
+  setIsAuth(isAuth: boolean) {
     this.isAuth = isAuth
   }
 
-  getUser():IUser {
-    return toJS(this.user)
+  setSomeChangesInDB(someChangesInDB: string) {
+    this.someChangesInDB = someChangesInDB
   }
 
-  getIsAuth():boolean {
-    return toJS(this.isAuth)
+  get getUser() {
+    return this.user
+  }
+
+  get getIsAuth() {
+    return this.isAuth
+  }
+
+  get getSomeChangesInDB() {
+    return this.someChangesInDB
   }
 }
-
-const userStore = new UserStore()
-export default userStore

@@ -8,7 +8,7 @@ router.post('/delete', CostController.delete)
 router.post('/update', CostController.update)
 
 router.get('/getCosts/:walletId', CostController.getCosts)
-
+router.get('/deleteAllCosts/:walletId', CostController.deleteAllCosts)
 
 
 module.exports = router

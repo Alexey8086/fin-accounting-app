@@ -31,7 +31,6 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
-  display: none;
 }
 .warning-msg span {
   width: 100%;

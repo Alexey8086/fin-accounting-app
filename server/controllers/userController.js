@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/User')
 const Validate = require('../utils/validate')
+const ApiError = require('../error/ApiError')
 
 const generateJwt = (id, username) => {
     return jwt.sign(
@@ -13,27 +14,28 @@ const generateJwt = (id, username) => {
 
 class UserController {
 
-  async registration (req, res) {
+  async registration (req, res, next) {
     try {
         const {username, password, password_repeat} = req.body
 
         // валидация клиента
         const validateError =  Validate.registration(username, password, password_repeat)
-        if (validateError) return res.json(validateError)
+        if (validateError) return res.status(404).json(validateError)
 
         // проверка уникальности логина
         const candidate = await User.findOne({username})
-        if (candidate) return res.json({message: 'Введённый логин уже занят'})
+        if (candidate) return res.status(404).json('Введённый логин уже занят')
 
         // создание пользователя
         const hashPass = bcrypt.hashSync(password, 7)
         const user = new User({username, password: hashPass})
-        await user.save()
+        const userData = await user.save()
 
-        return res.json({message: 'Пользователь успешно зарегистрирован'})
+        const token = generateJwt(userData?._id, userData?.username)
+        return res.json({token})
 
     } catch (err) {
-        return res.json({message: `Registration error ${err}`})
+      return res.json({message: `Registration error ${err}`})
     }
   }
 
@@ -43,17 +45,17 @@ class UserController {
 
         // валидация клиента
         const validateError = Validate.login(username, password, res)
-        if (validateError) return res.json(validateError)
+        if (validateError) return res.status(404).json(validateError)
 
         const user = await User.findOne({username})
 
         if (!user) {
-          return res.json({message: 'Пользователь не найден'})
+          return res.status(404).json({message: 'Пользователь не найден'})
         }
 
         let comparePassword = bcrypt.compareSync(password, user.password)
         if (!comparePassword) {
-          return res.json({message: 'Указан неверный пароль'})
+          return res.status(404).json({message: 'Указан неверный пароль'})
         }
 
         const token = generateJwt(user._id, user.username)

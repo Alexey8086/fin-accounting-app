@@ -15,8 +15,8 @@ class CostController {
       await cost.save()
       return res.status(200).json({message: 'Новый расход создан'})
 
-    } catch (err) {
-      return res.json({message: `Creating Cost error ${err}`})
+    } catch (error) {
+      return res.json({message: `Creating Cost error ${error}`})
     }
   }
 
@@ -27,8 +27,8 @@ class CostController {
       await Cost.deleteOne({ _id: id})
       return res.status(200).json({message: `Расход был удален`})
 
-    } catch (err) {
-        return res.json({message: `Deleting Cost error ${err}`})
+    } catch (error) {
+        return res.json({message: `Deleting Cost error ${error}`})
     }
   }
 
@@ -43,8 +43,8 @@ class CostController {
       await Cost.updateOne({ _id: id }, { title,  money})
       return res.json({message: `Расход обновлен`})
 
-    } catch (err) {
-      return res.json({message: `Updating Cost error ${err}`})
+    } catch (error) {
+      return res.json({message: `Updating Cost error ${error}`})
     }
   }
 
@@ -57,7 +57,19 @@ class CostController {
       return res.json(DATA)
 
     } catch (error) {
-      return res.json({message: `Getting costs error ${err}`})
+      return res.json({message: `Getting costs error ${error}`})
+    }
+  }
+
+  async deleteAllCosts (req, res) {
+    try {
+      const { walletId } = req.params
+
+      const response = await Cost.deleteMany({ walletId })
+
+      return res.json(response)
+    } catch (error) {
+      return res.json({message: `Deleting costs error ${error}`})
     }
   }
 }

@@ -6,7 +6,7 @@ module.exports = function (req, res, next) {
 
     const token = req.headers.authorization.split(' ')[1] // Example token {token_type token }: Bearer eyJhbGc.iOiJIUzI1NiIsInR5cC.I6IkpXVCJ9
     if (!token) {
-      res.status(401).json({message: "Пользователь не авторизован"})
+      return res.status(401).json({message: "Пользователь не авторизован"})
     }
 
     const decoded = jwt.verify(token, process.env.SECRET_KEY)
@@ -14,6 +14,6 @@ module.exports = function (req, res, next) {
     next()
 
   } catch (e) {
-    res.status(401).json({message: "Пользователь не авторизован"})
+    return res.status(401).json({message: "Пользователь не авторизован"})
   }
 }

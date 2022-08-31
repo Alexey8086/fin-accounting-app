@@ -21,15 +21,15 @@ import {
 // приватные маршруты
 export const privateRoutes: { path: string, Component: FC }[] = [
   {
-    path: COST_PG_ROUTE,
+    path: COST_PG_ROUTE + '/:id',
     Component: CostPG
   },
   {
-    path: PROFIT_PG_ROUTE,
+    path: PROFIT_PG_ROUTE + '/:id',
     Component: ProfitPG
   },
   {
-    path: WALLET_PG_ROUTE,
+    path: WALLET_PG_ROUTE + '/:id',
     Component: WalletIdPG
   },
   {

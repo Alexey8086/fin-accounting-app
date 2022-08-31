@@ -15,8 +15,8 @@ class ProfitController {
       await profit.save()
       return res.status(200).json({message: 'Новый доход создан'})
 
-    } catch (err) {
-      return res.json({message: `Creating Profit error ${err}`})
+    } catch (error) {
+      return res.json({message: `Creating Profit error ${error}`})
     }
   }
 
@@ -27,8 +27,8 @@ class ProfitController {
       await Profit.deleteOne({ _id: id})
       return res.status(200).json({message: `Доход был удален`})
 
-    } catch (err) {
-      return res.json({message: `Deleting Profit error ${err}`})
+    } catch (error) {
+      return res.json({message: `Deleting Profit error ${error}`})
     }
   }
 
@@ -43,8 +43,8 @@ class ProfitController {
       await Profit.updateOne({ _id: id }, { title,  money})
       return res.json({message: `Доход обновлен`})
 
-    } catch (err) {
-      return res.json({message: `Updating Profit error ${err}`})
+    } catch (error) {
+      return res.json({message: `Updating Profit error ${error}`})
     }
   }
 
@@ -56,7 +56,19 @@ class ProfitController {
 
       return res.json(DATA)
     } catch (error) {
-      return res.json({message: `Getting profits error ${err}`})
+      return res.json({message: `Getting profits error ${error}`})
+    }
+  }
+
+  async deleteAllProfits (req, res) {
+    try {
+      const { walletId } = req.params
+
+      const response = await Profit.deleteMany({ walletId })
+
+      return res.json(response)
+    } catch (error) {
+      return res.json({message: `Deleting profits error ${error}`})
     }
   }
 

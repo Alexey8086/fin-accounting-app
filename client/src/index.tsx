@@ -1,15 +1,14 @@
 import React, { createContext } from 'react'
 import ReactDOM from 'react-dom/client'
+import { ClassElement, ObjectType } from 'typescript'
 import App from './App'
 import userStore from './store/UserStore'
-import { IUser } from './store/UserStore'
 
-type cxtValue = {
-  user: IUser
-  isAuth: boolean
+interface CtxValue {
+  user: any;
 }
 
-export const Context = createContext<cxtValue | null>(null)
+export const Context = createContext<CtxValue | null>(null)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,7 +16,7 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <Context.Provider value={{ user: userStore.user, isAuth: userStore.isAuth }}>
+    <Context.Provider value={{ user: new userStore() }}>
       <App />
     </Context.Provider>
   </React.StrictMode>

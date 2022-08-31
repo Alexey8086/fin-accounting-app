@@ -7,5 +7,8 @@ router.post('/create', WalletController.create)
 router.post('/delete', WalletController.delete)
 router.post('/update', WalletController.update)
 
+router.get('/getWallets/:userId', WalletController.getWallets)
+
+
 
 module.exports = router
