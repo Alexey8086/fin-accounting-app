@@ -8,7 +8,7 @@ const path = require('path')
 const { env } = require('process')
 
 const PORT = process.env.PORT || 5000
-const DB_CONNECT_URL = `mongodb+srv://Alexey:${process.env.DB_PASSWORD}@cluster1.8phhwfx.mongodb.net/?retryWrites=true&w=majority`
+const DB_CONNECT_URL = `mongodb+srv://Alexey:DdT0JiPMwmwihEX8@cluster1.8phhwfx.mongodb.net/?retryWrites=true&w=majority`
 
 const app = express()
 
