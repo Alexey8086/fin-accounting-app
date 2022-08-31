@@ -23,6 +23,9 @@ app.use(session({
 
 app.use('/api', router)
 
+if (process.env.NODE_ENV = 'production') {
+  app.use(express.static('../client/build'))
+}
 
 const start = async () => {
   try {
