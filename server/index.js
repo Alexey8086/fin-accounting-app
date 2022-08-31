@@ -5,7 +5,6 @@ const session = require('express-session')
 const cors = require('cors')
 const router = require('./routes/index')
 const path = require('path')
-const { env } = require('process')
 
 const PORT = process.env.PORT || 5000
 const DB_CONNECT_URL = `mongodb+srv://Alexey:DdT0JiPMwmwihEX8@cluster1.8phhwfx.mongodb.net/?retryWrites=true&w=majority`
@@ -16,7 +15,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(session({
-  secret: env.SECRET_KEY,
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: false
 }))
